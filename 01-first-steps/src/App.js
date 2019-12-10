@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { func } from 'prop-types';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  function formatName(user) {
+    return user.lastName + '. ' + user.firstName + ' ' + user.lastName;
+  }
+
+  const user = {
+    firstName: 'James',
+    lastName: 'Bond'
+  };
+    
+  /*
+  const element = (
+    <div>
+      <h1>My name is {formatName(user)}.</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
     </div>
   );
+
+  return element;*/
+  
+  function tick() {
+    const element = (
+      <div>
+        <h1>My name is {formatName(user)}.</h1>
+        <h2>It is {new Date().toLocaleTimeString()}.</h2>
+      </div>
+    );
+
+    return element;
+  }
+
+  const TICKA = setInterval(tick, 1000);
+
 }
 
 export default App;
