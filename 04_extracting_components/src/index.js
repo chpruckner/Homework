@@ -12,7 +12,7 @@ class Counter extends React.Component {
 
     handleCount = () => {
         this.setState((state) => ({
-            count: state.count + 1 // a object is passed on!
+            count: state.count + 1 // an object is passed on!
         }));
     }
 
