@@ -41,13 +41,22 @@ class App extends React.Component {
 
   render() {
     //console.log(this.state.quotes);
-    //return (this.state.quotes && <ListContainer quotes={this.state.quotes} />);
-    //const randomquote = this.state.quotes[this.rand];
-    const randNumb = this.state.random;
+    const resultQuotes = !this.state.random ? this.state.quotes : [this.state.quotes[this.state.random]];
+    return (this.state.quotes && <main>
+        <div className="buttons">
+            <CustomButton click={this.handleRandomClick} text="random" />
+            <CustomButton click={this.handle5Click} text="show me 5" />
+        </div>
+        <ListContainer quotes={resultQuotes} />
+        </main>);
+    /*const randomquote = this.state.quotes[this.rand];
+    const randNumb = this.state.random;s
+    let arr = [];
+    arr.push(this.state.quotes[randNumb]);
     if (!this.state.random) {
         return (
             <div>
-                {console.log(this.state.quotes)}
+                {console.log(arr)}
                 <CustomButton click={this.handleRandomClick} text="random" />
                 <CustomButton click={this.handle5Click} text="show me 5" />
             </div>
@@ -58,10 +67,10 @@ class App extends React.Component {
                 {console.log(this.state.quotes)}
                 <CustomButton click={this.handleRandomClick} text="random" />
                 <CustomButton click={this.handle5Click} text="show me 5" />
-                <ListContainer quotes={this.state.quotes[randNumb]} />
+                <ListContainer quotes={arr} />
             </div>
         )
-    }
+    }*/
   }
 }
 
@@ -79,8 +88,8 @@ const ListItem = props => {
 
 const Lists = props => {
     const quotes = props.quotes;
-  console.log("blu", quotes);
-  if (quotes.isArray()) {
+  //console.log("blu", quotes);
+  /*if (quotes.isArray()) {
     const listItems = quotes.map(quote => (
         <ListItem key={quote.id} author={quote.author} quote={quote.en} />
     ));
@@ -88,8 +97,10 @@ const Lists = props => {
   } else if (typeof quotes === "object"){
     const listItems = <ListItem key={quotes.id} author={quotes.author} quote={quotes.en} />
     return listItems;
-  }
-  
+  }*/
+  const listItems = quotes.map(quote => (
+        <ListItem key={quote.id} author={quote.author} quote={quote.en} />
+  ));
   return <ul>{listItems}</ul>;
   /*return <ul><ListItem author={quote.author} quote={quote} /></ul>*/
 };
