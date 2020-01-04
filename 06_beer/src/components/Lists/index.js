@@ -3,12 +3,13 @@ import './index.css';
 
 const ListItem = props => {
     const { name, tagline, description, image_url } = props;
+    const img = <img className="card-img" src={image_url} alt={name} />;
     return (
       <li>
         <div className="card mb-3 text-left">
             <div className="row no-gutters">
                 <div className="col-md-1 p-4">
-                    <img className="card-img" src={image_url} alt={name} />
+                    {image_url != null && img}
                 </div>
                 <div className="col-md-11">
                     <div className="card-body">
