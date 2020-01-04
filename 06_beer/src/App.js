@@ -49,6 +49,10 @@ class App extends React.Component {
     })
   }
 
+  createFavList = (id) => {
+    console.log(id);
+  }
+
   render() {
     //console.log(this.state.beers);
     return (
@@ -77,7 +81,7 @@ class App extends React.Component {
                 <div>Favourites here</div>
               </Route>
               <Route path="/">
-                <main className="px-5">
+                <main className="px-5 mx-5">
                   <form className="form-inline">
                     <input 
                       type="text" 
