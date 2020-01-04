@@ -8,8 +8,9 @@ const handleFavCheckbox = (beerId) => {
 }
 
 const ListItem = (props) => {
-    const { name, tagline, description, image_url, beer_id} = props;
+    const { id, name, tagline, description, image_url} = props;
     const img = <img className="card-img" src={image_url} alt={name} />;
+    console.log("Beers ID:", id);
     return (
       <li>
         <div className="card mb-3 text-left">
@@ -27,7 +28,7 @@ const ListItem = (props) => {
                     </div>
                     <div className="card-footer">
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" onClick={() => handleFavCheckbox(beer_id)} id="fav" value="fav"/>
+                            <input className="form-check-input" type="checkbox" onClick={() => handleFavCheckbox(id)} id="fav" value="fav"/>
                             <label className="form-check-label" htmlFor="inlineCheckbox1">
                                 <small>add to my favourites</small>
                             </label>
@@ -44,7 +45,7 @@ const ListItem = (props) => {
     const beers = props.beers;
     //console.log("blu", beers);
     const listItems = beers.map(beer => (
-      <ListItem key={beer.id} name={beer.name} tagline={beer.tagline} description={beer.description} image_url={beer.image_url} />
+      <ListItem key={beer.id} id={beer.id} name={beer.name} tagline={beer.tagline} description={beer.description} image_url={beer.image_url} />
     ));
     return <ul>{listItems}</ul>;
   };
