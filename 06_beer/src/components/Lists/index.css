@@ -1,0 +1,8 @@
+ul {
+    padding-inline-start: 0;
+}
+
+.card {
+    max-width: 90vw;
+    margin: 0 auto;
+}
