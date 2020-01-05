@@ -2,15 +2,15 @@ import React from 'react';
 import './index.css';
 //import Switch from 'react-switch';
 
-const handleFavCheckbox = (beerId) => {
+/* const handleFavCheckbox = (beerId) => {
     console.log(beerId);
     return beerId;
-}
+} */
 
 const ListItem = (props) => {
     const { id, name, tagline, description, image_url} = props;
     const img = <img className="card-img" src={image_url} alt={name} />;
-    console.log("Beers ID:", id);
+    //console.log("Beers ID:", id);
     return (
       <li>
         <div className="card mb-3 text-left">
@@ -28,7 +28,7 @@ const ListItem = (props) => {
                     </div>
                     <div className="card-footer">
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" onClick={() => handleFavCheckbox(id)} id="fav" value="fav"/>
+                            <input className="form-check-input" type="checkbox" onClick={() => props.markFav(id)} id="fav" value="fav"/>
                             <label className="form-check-label" htmlFor="inlineCheckbox1">
                                 <small>add to my favourites</small>
                             </label>
@@ -41,18 +41,18 @@ const ListItem = (props) => {
     ); 
   };
   
-  const Lists = props => {
+  const Lists = (props) => {
     const beers = props.beers;
     //console.log("blu", beers);
     const listItems = beers.map(beer => (
-      <ListItem key={beer.id} id={beer.id} name={beer.name} tagline={beer.tagline} description={beer.description} image_url={beer.image_url} />
+      <ListItem key={beer.id} id={beer.id} name={beer.name} tagline={beer.tagline} description={beer.description} image_url={beer.image_url} markFav={props.markFav} />
     ));
     return <ul>{listItems}</ul>;
   };
   
-  const ListContainer = props => {
+  const ListContainer = (props) => {
       //console.log(props.beers);
-    return <Lists beers={props.beers} />;
+    return <Lists beers={props.beers} markFav={props.markFav} />;
   };
 
   export default ListContainer;
