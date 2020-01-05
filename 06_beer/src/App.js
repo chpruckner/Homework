@@ -65,6 +65,21 @@ class App extends React.Component {
       });
     }
     console.log("Fav Listn: ", this.state.favs)
+    return this.fetchFavourites(this.state.favs);
+  }
+
+  fetchFavourites = (favArr) => {
+    const idString = favArr.join("|");
+    fetch(`https://api.punkapi.com/v2/beers?ids=${idString}`)
+    // Transform the returned json string data into a real json object.
+    .then(response => response.json())
+    // what to do with the data?
+    .then(data => {
+        this.setState({
+          favBeers: data
+        });
+      }
+    );
   }
 
   render() {
@@ -92,7 +107,9 @@ class App extends React.Component {
                 renders the first one that matches the current URL. */}
             <Switch>
               <Route path="/favs">
-                <div>Favourites here</div>
+                <main className="px-5 mx-5">
+                  {this.state.favBeers ? <ListContainer beers={this.state.favBeers} markFav={this.createFavList} /> : null }
+                </main>
               </Route>
               <Route path="/">
                 <main className="px-5 mx-5">
