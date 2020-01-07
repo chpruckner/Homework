@@ -49,7 +49,7 @@ class App extends React.Component {
   }
 
   createFavList = (id) => {
-    console.log("ID: ",id);
+    //console.log("ID: ",id);
     const beerID = String(id);
     let favList = this.state.favs;
     if (!favList.includes(beerID)) {
@@ -64,7 +64,7 @@ class App extends React.Component {
         favs: favList
       });
     }
-    console.log("Fav Listn: ", this.state.favs)
+    //console.log("Fav Listn: ", this.state.favs)
     return this.fetchFavourites(this.state.favs);
   }
 
