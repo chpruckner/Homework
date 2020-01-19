@@ -1,0 +1,13 @@
+.media h5 {
+    font-size: 0.9em;
+}
+
+.media:hover {
+    cursor: pointer;
+}
+
+.media:last-of-type {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
+}
