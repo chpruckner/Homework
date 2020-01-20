@@ -40,20 +40,19 @@ class App extends React.Component {
     })
 
     this.setState({
-      videos: videos
+      videos: videos,
+      selectedVideo: videos[0]
     })
-    console.log()
-    console.log("state: ", this.state.videos);
+    //console.log()
+    //console.log("state: ", this.state.videos);
   }
 
-  onVideoSelect = (id, title) => {
+  onVideoSelect = (id) => {
+    const videos = this.state.videos;
+    const selectedVideo = videos.find(el => el.id === id);
     this.setState({
-      selectedVideo: {
-        id: id,
-        title: title
-      }
+      selectedVideo: selectedVideo
     })
-    //console.log(id);
   }
 
   render() {
