@@ -1,0 +1,8 @@
+header h4 {
+    display: inline;
+    margin: 0 1rem 0 0;
+}
+
+main ul li {
+    list-style: none;
+}
